@@ -31,7 +31,8 @@ var PowerFormComponent = (function () {
 PowerFormComponent = __decorate([
     core_1.Component({
         selector: 'power-form',
-        templateUrl: './power-form.component.html'
+        templateUrl: './power-form.component.html',
+        styleUrls: ['./forms.css']
     })
 ], PowerFormComponent);
 exports.PowerFormComponent = PowerFormComponent;

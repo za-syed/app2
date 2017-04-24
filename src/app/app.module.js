@@ -11,6 +11,7 @@ var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var test_component_1 = require("./test.component");
 var hero_form_component_1 = require("./hero-form.component");
+var power_form_component_1 = require("./power-form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,7 +23,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             forms_1.FormsModule
         ],
-        declarations: [app_component_1.AppComponent, hero_form_component_1.HeroFormComponent, test_component_1.TestComponent],
+        declarations: [app_component_1.AppComponent, hero_form_component_1.HeroFormComponent, test_component_1.TestComponent, power_form_component_1.PowerFormComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

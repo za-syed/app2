@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Hero }    from './hero';
 @Component({
   selector: 'hero-form',
-  templateUrl: './hero-form.component.html'
+  templateUrl: './hero-form.component.html',
+   styleUrls: ['./forms.css']
 })
 export class HeroFormComponent {
   lastIndex=20;
