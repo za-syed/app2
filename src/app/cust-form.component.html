@@ -1,0 +1,83 @@
+<div class="container">
+    <div>
+        <h1>Customer Form</h1>
+        <form (ngSubmit)="onSubmit()" #custForm="ngForm">
+            <div class="form-group">
+                <label for="customerID">ID</label>
+                <input type="text" class="form-control" id="customerID" required [(ngModel)]="model.customerID" name="customerID" #customerID="ngModel">
+                <div [hidden]="customerID.valid || customerID.pristine" class="alert alert-danger">
+                    ID is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contactName">Contact Name</label>
+                <input type="text" class="form-control" id="contactName" required [(ngModel)]="model.contactName" name="contactName" #contactName="ngModel">
+                <div [hidden]="contactName.valid || contactName.pristine" class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="contactTitle">Title</label>
+                <input type="text" class="form-control" id="contactTitle" required [(ngModel)]="model.contactTitle" name="contactTitle" #contactTitle="ngModel">
+                <div [hidden]="contactTitle.valid || contactTitle.pristine" class="alert alert-danger">
+                    Title is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone" #phone="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" [(ngModel)]="model.phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" [(ngModel)]="model.state" name="state">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" [(ngModel)]="model.city" name="city">
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" [(ngModel)]="model.zip" name="zip">
+            </div>
+
+            <button type="submit" class="btn btn-success" (click)="AddCustomer();" [disabled]="!custForm.form.valid">Submit</button>
+            <button type="button" class="btn btn-default" (click)="newCustomer(); custForm.reset()">New Customer</button>
+        </form>
+
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of customers">
+                    <td>{{c.customerID}}</td>
+                    <td>{{c.contactName}}</td>
+                    <td>{{c.contactTitle}}</td>
+                    <td>{{c.phone}}</td>
+
+                    <td> <button class="btn btn-primary" (click)="initializeForEdit(c)">Edit</button>
+                        <button class="btn btn-danger" style="background-color: red" (click)="deleteCustomer(c.customerID)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

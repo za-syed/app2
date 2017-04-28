@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+export class Customer {
+   constructor(
+    public customerID: string,
+    public contactName: string,
+    public contactTitle: string,
+    public country: string,
+    public phone?: string,
+    public address?: string,
+    public state?: string,
+    public city?: string,
+    public zip?: string    
+  ) {  }
+}
+export const CUSTOMERS: Customer[] = [new Customer('ALFKI', 'Maria Anders', 'Sales Representative', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('ANATR', 'Ana Trujillo', 'Owner', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('ANTON', 'Antonio Moreno', 'Owner', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('AROUT', 'Around the Horn', 'Sales Representative', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('BERGS', 'Christina Berglund', 'Order Administrator', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('BLAUS', 'Hanna Moos', 'Sales Representative', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859'),
+new Customer('BLONP', 'Frédérique Citeaux', 'Marketing Manager', 'Germany','030-0074321', 'Obere Str. 57','New Jersey','Parlin','08859')
+];
+@Component({
+  selector: 'my-app',
+  templateUrl:'./master-detail-customer.html'    
+  ,
+  styleUrls: ['./master-detail-customer.css']
+})
+export class MasterDetailCustomerComponent {
+  title = 'Tour of Customers';
+  customers = CUSTOMERS;
+  selectedCustomer: Customer;
+  onSelect(cust: Customer): void {
+    this.selectedCustomer = cust;
+  }
+}

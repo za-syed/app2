@@ -6,16 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var mock_customers_1 = require("./mock-customers");
+var CustomerService = (function () {
+    function CustomerService() {
     }
-    return AppComponent;
+    CustomerService.prototype.getCustomers = function () {
+        return Promise.resolve(mock_customers_1.CUSTOMERS);
+    };
+    return CustomerService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: " \n  <hero-form></hero-form>   \n  ",
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+CustomerService = __decorate([
+    core_1.Injectable()
+], CustomerService);
+exports.CustomerService = CustomerService;
+//# sourceMappingURL=customer.service.js.map

@@ -6,16 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var HeroListComponent = (function () {
+    function HeroListComponent() {
     }
-    return AppComponent;
+    return HeroListComponent;
 }());
-AppComponent = __decorate([
+HeroListComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: " \n  <hero-form></hero-form>   \n  ",
+        template: "\n    <h2>HEROES</h2>\n    <p>Get your heroes here</p>\n    <button routerLink=\"/sidekicks\">Go to sidekicks</button>\n  "
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], HeroListComponent);
+exports.HeroListComponent = HeroListComponent;
+//# sourceMappingURL=hero-list.component.js.map

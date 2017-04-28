@@ -7,7 +7,7 @@ import { Hero }    from './hero';
 })
 export class HeroFormComponent {
   lastIndex=20;
-  heroes = [new Hero(1,'Dr Fuck', 'Really Smart','Doctor'),
+  heroes = [new Hero(1,'Dr Muck', 'Really Smart','Doctor'),
   new Hero(2,'Dr Duck', 'Super Hot','Teacher'),
   new Hero(3,'Dr Chuck', 'Weather Changer','Actor')
   ];

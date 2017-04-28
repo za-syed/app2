@@ -10,7 +10,7 @@ var hero_1 = require("./hero");
 var HeroFormComponent = (function () {
     function HeroFormComponent() {
         this.lastIndex = 20;
-        this.heroes = [new hero_1.Hero(1, 'Dr Fuck', 'Really Smart', 'Doctor'),
+        this.heroes = [new hero_1.Hero(1, 'Dr Muck', 'Really Smart', 'Doctor'),
             new hero_1.Hero(2, 'Dr Duck', 'Super Hot', 'Teacher'),
             new hero_1.Hero(3, 'Dr Chuck', 'Weather Changer', 'Actor')
         ];

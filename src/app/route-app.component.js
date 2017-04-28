@@ -6,16 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var RoutComponent = (function () {
+    function RoutComponent() {
     }
-    return AppComponent;
+    return RoutComponent;
 }());
-AppComponent = __decorate([
+RoutComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: " \n  <hero-form></hero-form>   \n  ",
+        template: "\n    <h1>Angular Router</h1>\n    <nav>\n      <a routerLink=\"/crisis-center\" routerLinkActive=\"active\">Crisis Center</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], RoutComponent);
+exports.RoutComponent = RoutComponent;
+//# sourceMappingURL=route-app.component.js.map
