@@ -21,6 +21,7 @@ var Customer = (function () {
     return Customer;
 }());
 exports.Customer = Customer;
+exports.STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 exports.CUSTOMERS = [new Customer('ALFKI', 'Maria Anders', 'Sales Representative', 'Germany', '030-0074321', 'Obere Str. 57', 'New Jersey', 'Parlin', '08859'),
     new Customer('ANATR', 'Ana Trujillo', 'Owner', 'Germany', '030-0074321', 'Obere Str. 57', 'New Jersey', 'Parlin', '08859'),
     new Customer('ANTON', 'Antonio Moreno', 'Owner', 'Germany', '030-0074321', 'Obere Str. 57', 'New Jersey', 'Parlin', '08859'),
@@ -33,6 +34,7 @@ var MasterDetailCustomerComponent = (function () {
     function MasterDetailCustomerComponent() {
         this.title = 'Tour of Customers';
         this.customers = exports.CUSTOMERS;
+        this.states = exports.STATES;
     }
     MasterDetailCustomerComponent.prototype.onSelect = function (cust) {
         this.selectedCustomer = cust;

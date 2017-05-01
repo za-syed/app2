@@ -7,11 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var mock_customers_1 = require("./mock-customers");
+var CustomerResponse = (function () {
+    function CustomerResponse(Success, Message) {
+        this.Success = Success;
+        this.Message = Message;
+    }
+    return CustomerResponse;
+}());
+exports.CustomerResponse = CustomerResponse;
 var CustomerService = (function () {
     function CustomerService() {
     }
+    // customer: CustomerResponse;
     CustomerService.prototype.getCustomers = function () {
-        return Promise.resolve(mock_customers_1.CUSTOMERS);
+        this.Customers = mock_customers_1.CUSTOMERS;
+        return Promise.resolve(this.Customers);
+    };
+    CustomerService.prototype.addNewCustomer = function (cust) {
+        this.Customers.push(cust);
+        var customer = new CustomerResponse(true, 'Customer was added successfully');
+        return Promise.resolve(customer);
     };
     return CustomerService;
 }());

@@ -14,7 +14,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: " \n  <hero-form></hero-form>   \n  ",
+        template: " <h1>should say something about \"Angular\"</h1>\n   <strong>Fuck you</strong>\n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

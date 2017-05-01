@@ -1,79 +1,93 @@
 <div class="container">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary text-center">
         <div class="panel-heading">{{title}}</div>
         <div class="panel-body">
-            <ul class="heroes">
-                <li *ngFor="let cust of customers">
-                    <!--<span class="badge">{{cust.customerID}}</span><span class="badge">{{cust.contactTitle +" "+cust.contactName }}</span>-->
-                    <button type="button" class="btn btn-primary" (click)="onCustomerSelected(cust)"><span class="badge">{{cust.customerID}}</span>
-                    {{cust.contactName }}
-                    <span class="badge" style="background-color: red;color: white">{{cust.contactTitle}}</span>
-                    </button>
-                </li>
-            </ul>
-            <div *ngIf="selectedCustomer">
+            <div class="col-xs-8">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action btn btn-primary" *ngFor="let cust of customers" (click)="onCustomerSelected(cust)">
+                        <span class="badge pull-left pull-top">{{cust.customerID}}</span><span class="pull-center">{{cust.contactName }}</span>
+                        <span class="badge pull-right pull-top" style="background-color: red;color: white">{{cust.contactTitle}}</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action btn btn-primary" (click)="onCreateNewCustomer()">
+                        <span class="badge pull-left"></span><span class="pull-center">Add New</span>
+                        <span class="badge pull-right" style="background-color: red;color: white"></span>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="selectedCustomer" class="col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        {{selectedCustomer.contactName }}
+                        <span> {{selectedCustomer.contactName }}'s Details who is the amazing</span>
                         <span class="badge" style="background-color: green;color: white">{{selectedCustomer.contactTitle}}</span>
                     </div>
                     <div class="panel-body">
                         <form #custForm="ngForm">
-                            <div class="form-group">
-                                <label for="customerID">ID</label>
-                                <input type="text" class="form-control" id="customerID" required [(ngModel)]="selectedCustomer.customerID" name="customerID"
-                                    #customerID="ngModel">
-                                <div [hidden]="customerID.valid || customerID.pristine" class="alert alert-danger">
-                                    ID is required
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label" for="customerID">ID</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="customerID" required [(ngModel)]="selectedCustomer.customerID" name="customerID"
+                                        #customerID="ngModel">
+                                    <p [hidden]="customerID.valid || customerID.pristine" class="alert alert-danger">
+                                        ID is required
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="contactName" class="col-xs-2 col-form-label">Contact Name</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="contactName" required [(ngModel)]="selectedCustomer.contactName" name="contactName"
+                                        #contactName="ngModel">
+                                    <p [hidden]="contactName.valid || contactName.pristine" class="alert alert-danger">
+                                        Name is required
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="contactTitle" class="col-xs-2 col-form-label">Title</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': contactTitle.invalid, 'has-success': contactTitle.valid}">
+                                    <input type="text" class="form-control" id="contactTitle" required [(ngModel)]="selectedCustomer.contactTitle" name="contactTitle"
+                                        #contactTitle="ngModel">
+                                    <p [hidden]="contactTitle.valid || contactTitle.pristine" class="alert alert-danger">
+                                        Title is required
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="contactName">Contact Name</label>
-                                <input type="text" class="form-control" id="contactName" required [(ngModel)]="selectedCustomer.contactName" name="contactName"
-                                    #contactName="ngModel">
-                                <div [hidden]="contactName.valid || contactName.pristine" class="alert alert-danger">
-                                    Name is required
+                            <div class="form-group row">
+                                <label for="phone" class="col-xs-2">Phone</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': phone.invalid, 'has-success': phone.valid}">
+                                    <input type="text" class="form-control" id="phone" required [(ngModel)]="selectedCustomer.phone" name="phone" #phone="ngModel">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="address" class="col-xs-2">Address</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': address.invalid, 'has-success': address.valid}">
+                                    <input type="text" class="form-control" id="address" required [(ngModel)]="selectedCustomer.address" name="address" #address="ngModel">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="state" class="col-xs-2">State</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': state.invalid, 'has-success': state.valid}">
+                                    <select class="form-control" id="state" required [(ngModel)]="selectedCustomer.state" name="state" #state="ngModel">
+                                             <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="city" class="col-xs-2">City</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': city.invalid, 'has-success': city.valid}">
+                                    <input type="text" class="form-control" id="city" required [(ngModel)]="selectedCustomer.city" name="city" #city="ngModel">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="zip" class="col-xs-2">Zip</label>
+                                <div class="col-xs-8" [ngClass]="{'has-error': zip.invalid, 'has-success': zip.valid}">
+                                    <input type="text" class="form-control" id="zip" [(ngModel)]="selectedCustomer.zip" required name="zip" #zip="ngModel">
                                 </div>
                             </div>
 
-
-                            <div class="form-group">
-                                <label for="contactTitle">Title</label>
-                                <input type="text" class="form-control" id="contactTitle" required [(ngModel)]="selectedCustomer.contactTitle" name="contactTitle"
-                                    #contactTitle="ngModel">
-                                <div [hidden]="contactTitle.valid || contactTitle.pristine" class="alert alert-danger">
-                                    Title is required
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" [(ngModel)]="selectedCustomer.phone" name="phone" #phone="ngModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address" [(ngModel)]="selectedCustomer.address" name="address" #address="ngModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" [(ngModel)]="selectedCustomer.phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="state">State</label>
-                                <input type="text" class="form-control" id="state" [(ngModel)]="selectedCustomer.state" name="state">
-                            </div>
-                            <div class="form-group">
-                                <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" [(ngModel)]="selectedCustomer.city" name="city">
-                            </div>
-                            <div class="form-group">
-                                <label for="zip">Zip</label>
-                                <input type="text" class="form-control" id="zip" [(ngModel)]="selectedCustomer.zip" name="zip">
-                            </div>
-
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <button type="button" class="btn btn-default">New Customer</button>
+                            <button type="submit" [disabled]="!custForm.valid" (click)="onAddNewCustomer(selectedCustomer)" class="btn btn-success">Submit</button>
+                            <button type="button" class="btn btn-default" (click)="custForm.reset()">New Customer</button>
                         </form>
                     </div>
                 </div>

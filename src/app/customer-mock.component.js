@@ -9,11 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var customer_1 = require("./customer");
 var customer_service_1 = require("./customer.service");
+exports.STATES = ['', 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 var CustomerMockComponent = (function () {
     function CustomerMockComponent(customerService) {
         this.customerService = customerService;
         this.title = 'Our Customers';
+        this.states = exports.STATES;
     }
     CustomerMockComponent.prototype.getCutomers = function () {
         var _this = this;
@@ -28,6 +31,18 @@ var CustomerMockComponent = (function () {
     CustomerMockComponent.prototype.onCustomerSelected = function (cust) {
         this.selectedCustomer = cust;
         //JSON.stringify(this.model);
+    };
+    CustomerMockComponent.prototype.onAddNewCustomer = function (cust) {
+        //this.customers.push(cust);    
+        this.customerService.addNewCustomer(cust).then(function (data) {
+            // alert(data);
+        }, function (err) {
+            //alert(err);
+        });
+        this.getCutomers();
+    };
+    CustomerMockComponent.prototype.onCreateNewCustomer = function () {
+        this.selectedCustomer = new customer_1.Customer('', '', '', '');
     };
     return CustomerMockComponent;
 }());
